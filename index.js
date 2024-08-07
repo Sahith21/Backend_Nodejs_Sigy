@@ -10,7 +10,7 @@ const path = require('path');
 
 const app = express();
 
-const port = 4000;
+const port = process.env.port || 4000;
 
 dotEnv.config();
 
@@ -29,6 +29,6 @@ app.listen(port,()=>{
     console.log(`server running at https://localhost:${port}`);
 });
 
-app.use('/home',(req,res)=>{
+app.use('/',(req,res)=>{
     res.send("<h1>Welcome to SIGY</h1>");
 });
