@@ -5,7 +5,7 @@ const vendorRoutes = require('./routes/vendorRoutes');
 const bodyparser = require('body-parser');
 const firmroutes = require('./routes/firmroutes');
 const productroutes = require('./routes/productroutes');
-const path = require('path');
+const cors = require('cors');
 
 
 const app = express();
@@ -13,6 +13,7 @@ const app = express();
 const port = process.env.port || 4000;
 
 dotEnv.config();
+app.use(cors());
 
 mongoose.connect(process.env.MONGO_URI)
     .then(()=>console.log("MongoDB connected succesfully!"))
@@ -30,5 +31,5 @@ app.listen(port,()=>{
 });
 
 app.use('/',(req,res)=>{
-    res.send("<h1>Welcome to SIGY</h1>");
-});
+    res.send("<h1>Welcome to SIGY");
+})
