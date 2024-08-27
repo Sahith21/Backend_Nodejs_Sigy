@@ -65,13 +65,13 @@ const getproductbyfirm = async(req,res)=>{
 
 const deleteproductbyId = async(req,res)=>{
     try {
-        const productId = req.params.productId;
+        const productId = req.params.pId;
         const deleteproduct = await Product.findByIdAndDelete(productId);
         if(!deleteproduct)
         {
             return res.status(404).json({error:"No product found"});
         }
-
+        res.status(200).json({message:"Product deleted successfully"});
     } catch (error) {
         console.error(error);
         res.status(500).json({error:"internal server error"})
