@@ -8,7 +8,7 @@ router.post('/add-firm',verifytoken,firmcontroller.addfirm);
 router.get('/uploads/:imagename',(req,res)=>{
     const imagename = req.params.imagename;
     res.header('Content-Type','image/jpeg');
-    res.sendFile(path.join(__dirname,'..','uploads',imagename));
+    res.sendFile(Path.join(__dirname,'..','uploads',imagename));
 });
 router.delete('/:fId',firmcontroller.deletefirmbyId);
 module.exports = router;
